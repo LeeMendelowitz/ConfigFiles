@@ -7,7 +7,6 @@
 	ui = true
 [alias]
 	nicelog = log --oneline --abbrev-commit --graph --decorate --color
-	nicelog2 = log --oneline --abbrev-commit --graph --decorate --color
 [core]
 	autocrlf = false
 [push]
