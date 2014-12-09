@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+"""
+absPath.py
+Print the full path of a file
+Author: Lee Mendelowitz
+Date: 8/1/2012
+"""
+
+import os
+import sys
+
+def printAbsPaths(fileList):
+    for f in fileList:
+        absPath = os.path.abspath(f)
+        if not os.path.exists(absPath):
+            print '%s: file does not exist!'%f
+        else:
+            print absPath
+
+def main():
+    files = sys.argv[1:]
+    printAbsPaths(files)
+
+if __name__ == '__main__':
+    main()
