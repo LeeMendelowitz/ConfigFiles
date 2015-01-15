@@ -10,3 +10,4 @@ stty -ixon # Fix Ctrl+S for the Ctrl+R reverse search
  ~/config/git-completion.bash
 
 export PATH=~/config/bin:$PATH
+export EDITOR=`which vi`
