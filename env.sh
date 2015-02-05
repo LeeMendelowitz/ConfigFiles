@@ -4,6 +4,7 @@ alias lsd="ls -l | grep '^d'"
 alias less="less -iR"
 alias grep="grep --color"
 alias serve="python -m SimpleHTTPServer"
+alias ports="sudo lsof -i | grep -E '(ESTABLISHED|LISTEN)'"
 
 stty -ixon # Fix Ctrl+S for the Ctrl+R reverse search
 
