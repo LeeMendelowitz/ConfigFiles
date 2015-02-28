@@ -12,3 +12,20 @@ stty -ixon # Fix Ctrl+S for the Ctrl+R reverse search
 
 export PATH=~/config/bin:$PATH
 export EDITOR=`which vi`
+
+
+
+# Awesome Functions!
+
+find_c_source () {
+    find -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
+}
+
+find_py_source () {
+    find -name '*.py' | xargs -I {} grep -Hn --color $1 {}
+}
+
+find_source () {
+    find -name '*.sh' -o -name '*.py' -o -name '*.R' -o -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
+}
+
