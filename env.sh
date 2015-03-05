@@ -16,7 +16,6 @@ export EDITOR=`which vi`
 
 
 # Awesome Functions!
-
 find_c_source () {
     find -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
 }
@@ -29,3 +28,13 @@ find_source () {
     find -name '*.sh' -o -name '*.py' -o -name '*.R' -o -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
 }
 
+
+# Preserve the header in output, and perform action only on body
+# Example:
+#     ps -ef | body grep "python"
+# Src: Command Line Kung Fu book
+body() {
+    IFS= read -r header
+    printf '%s\n' "$header"
+    "$@"
+}
