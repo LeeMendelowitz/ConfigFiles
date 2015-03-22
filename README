@@ -1,1 +1,33 @@
 This is a place where I keep my config files for git, vim, etc.
+The `env.sh` file defines aliases and bash functions that I use a lot.
+
+If you would like to use a configuration similar to mine,
+here are the installation instructions:
+
+
+```bash
+
+
+# Clone into ~/config:
+cd ~
+git clone https://github.com/LeeMendelowitz/ConfigFiles.git ~/config
+
+# Add the config/bin path to your .bashrc.
+# Edit your .bashrc manually or use this:
+cat >>~/.bashrc <<'EOF'
+export PATH=~/config/bin:$PATH
+source ~/config/env.sh
+EOF
+
+```
+
+The last step is to copy any dot-files (`.*`) from config to your home directory.
+I leave this to you, depending on what you would like to use.
+
+For example, to use the `.vimrc`:
+
+```bash
+cp ~/config/.vimrc ~
+```
+
+Here are some spefic
