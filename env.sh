@@ -54,3 +54,12 @@ body() {
     "$@"
 }
 export -f body
+
+###################################
+# print the path nicely!
+function path(){
+    old=$IFS
+    IFS=:
+    printf "%s\n" $PATH
+    IFS=$old
+}
