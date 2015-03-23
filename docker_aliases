@@ -1,0 +1,29 @@
+# Useful aliases for working with docker and boot2docker
+
+##########################################################
+# Use this to ssh into a container running in boot2docker
+# Example: docker_ssh_container lee my_container
+
+docker_ssh_container () {
+
+  HAVE_ARGS=0
+
+  if [[ -z $1 || -z $2 ]]; then
+    echo "Usage: docker_ssh_container USER CONTAINER"
+    HAVE_ARGS=0
+  else
+    HAVE_ARGS=1
+  fi
+
+
+  if [[ HAVE_ARGS -eq 1 ]]; then
+    USER=$1
+    CONTAINER=$2
+    IP=$(boot2docker ip || 127.0.0.1)
+    PORT=$(docker port $CONTAINER 22 | cut -d ':' -f 2)
+
+    ssh -p $PORT $USER@$IP
+  fi
+
+}
+export -f docker_ssh_container
