@@ -19,7 +19,7 @@ docker_ssh_container () {
   if [[ HAVE_ARGS -eq 1 ]]; then
     USER=$1
     CONTAINER=$2
-    IP=$(boot2docker ip || 127.0.0.1)
+    IP=$(docker-machine ip default || 127.0.0.1)
     PORT=$(docker port $CONTAINER 22 | cut -d ':' -f 2)
 
     ssh -p $PORT $USER@$IP

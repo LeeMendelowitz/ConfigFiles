@@ -25,7 +25,6 @@ export EDITOR=`which vi`
 find_c_source () {
     find -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
 }
-export -f find_c_source
 
 find_py_source () {
     find -name '*.py' | xargs -I {} grep -Hn --color $1 {}
@@ -34,12 +33,10 @@ find_py_source () {
 find_R_source () {
     find -name '*.R' | xargs -I {} grep -Hn --color $1 {}
 }
-export -f find_R_source
 
 find_source () {
     find -name '*.sh' -o -name '*.py' -o -name '*.R' -o -name '*.c' -o -name '*.cpp' -o -name '*.cc' -o -name '*.h' | xargs -I {} grep -Hn --color $1 {}
 }
-export -f find_source
 ################################################################################
 
 
@@ -53,11 +50,10 @@ body() {
     printf '%s\n' "$header"
     "$@"
 }
-export -f body
 
 ###################################
 # print the path nicely!
-function path(){
+path(){
     old=$IFS
     IFS=:
     printf "%s\n" $PATH
